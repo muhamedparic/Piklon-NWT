@@ -3,19 +3,10 @@ package ba.team12.articles.models;
 import ba.team12.articles.Condition;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "articles")
@@ -51,11 +42,19 @@ public class Article {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationTime;
 
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "article_id")
+	private List<Image> images;
+
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "article_id")
+	private List<ExtraInfo> extraInfo;
+
 	public Article() {
 	}
 
-	public Article(Long userId, String name, int price, Condition condition, Location location, Category category, Date creationTime) {
-		
+	public Article(Long userId, String name, int price, Condition condition, Location location, Category category, Date creationTime, List<Image> images, List<ExtraInfo> extraInfo) {
+
 		this.userId = userId;
 		this.name = name;
 		this.price = price;
@@ -63,6 +62,8 @@ public class Article {
 		this.location = location;
 		this.category = category;
 		this.creationTime = creationTime;
+		this.images = images;
+		this.extraInfo = extraInfo;
 	}
 
 	public Long getId() {
@@ -96,14 +97,6 @@ public class Article {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
-	public Condition getCondition() {
-		return condition;
-	}
-	
-	public void setConditoin(Condition condition) {
-		this.condition = condition;
-	}
 
 	public Location getLocation() {
 		return location;
@@ -127,5 +120,29 @@ public class Article {
 
 	public void setCreationTime(Date creationTime) {
 		this.creationTime = creationTime;
+	}
+
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images  = images;
+	}
+
+	public Condition getCondition() {
+		return this.condition;
+	}
+
+	public void setCondition(Condition condition) {
+		this.condition = condition;
+	}
+
+	public List<ExtraInfo> getExtraInfo() {
+		return extraInfo;
+	}
+
+	public void setExtraInfo(List<ExtraInfo> extraInfo) {
+		this.extraInfo = extraInfo;
 	}
 }

@@ -19,10 +19,6 @@ public class ExtraInfo {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "article_id")
-	private Article article;
-	
-	@ManyToOne
 	@JoinColumn(name = "extra_info_type_id")
 	private ExtraInfoType extraInfoType;
 	
@@ -32,8 +28,7 @@ public class ExtraInfo {
 	public ExtraInfo() {
 	}
 
-	public ExtraInfo(Article article, ExtraInfoType extraInfoType, String value) {
-		this.article = article;
+	public ExtraInfo(ExtraInfoType extraInfoType, String value) {
 		this.extraInfoType = extraInfoType;
 		this.value = value;
 	}
@@ -46,19 +41,11 @@ public class ExtraInfo {
 		this.id = id;
 	}
 
-	public Article getArticleId() {
-		return article;
-	}
-
-	public void setArticleId(Article article) {
-		this.article = article;
-	}
-
 	public ExtraInfoType getExtraInfoType() {
 		return extraInfoType;
 	}
 
-	public void setExtraInfoTypeId(ExtraInfoType extraInfoType) {
+	public void setExtraInfoType(ExtraInfoType extraInfoType) {
 		this.extraInfoType = extraInfoType;
 	}
 

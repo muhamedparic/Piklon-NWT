@@ -13,8 +13,12 @@ public class LocationService {
     @Autowired
     private LocationRepository locationRepository;
 
-    public List<Location> findByName(String name) {
-        return locationRepository.findByName(name);
+    public List<Location> search(String name) {
+        return locationRepository.findByNameStartsWith(name);
+    }
+
+    public List<Location> findAll() {
+        return locationRepository.findAllByOrderByName();
     }
 
     public void save(Location location) {

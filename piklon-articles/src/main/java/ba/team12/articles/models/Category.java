@@ -1,11 +1,7 @@
 package ba.team12.articles.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -18,12 +14,17 @@ public class Category {
 	
 	@Column(length = 30)
 	private String name;
+
+	@OneToMany(fetch = FetchType.LAZY)
+	@Column(name = "category_id")
+	private List<ExtraInfoType> extraInfoTypes;
 	
 	public Category() {
 	}
 
-	public Category(String name) {
+	public Category(String name, List<ExtraInfoType> extraInfoTypes) {
 		this.name = name;
+		this.extraInfoTypes = extraInfoTypes;
 	}
 
 	public Long getId() {
@@ -40,5 +41,13 @@ public class Category {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<ExtraInfoType> getExtraInfoTypes() {
+		return extraInfoTypes;
+	}
+
+	public void setExtraInfoTypes(List<ExtraInfoType> extraInfoTypes) {
+		this.extraInfoTypes = extraInfoTypes;
 	}
 }
