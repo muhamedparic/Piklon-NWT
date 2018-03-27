@@ -1,5 +1,7 @@
 package ba.team12.articles.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +21,7 @@ public class Image {
 	
 	@Column
 	@Lob
+	@JsonIgnore
 	private byte[] data;
 
 	public Image() {

@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 
 @Entity
@@ -18,12 +19,15 @@ public class Article {
 	private Long id;
 	
 	@Column(name = "user_id")
+	@Positive(message = "Invalid user_id")
 	private Long userId;
 	
 	@Column(length = 64)
+	@Size(min = 5, message = "Name too short")
 	private String name;
 	
 	@Column
+	@Positive(message = "Invalid price")
 	private int price;
 	
 	@Column(name = "article_condition")
@@ -32,10 +36,12 @@ public class Article {
 	
 	@ManyToOne
 	@JoinColumn(name = "location_id")
+	@NotNull(message = "Location required")
 	private Location location;
 	
 	@ManyToOne
 	@JoinColumn(name = "category_id")
+	@NotNull(message = "Category required")
 	private Category category;
 	
 	@Column(name = "creation_time")

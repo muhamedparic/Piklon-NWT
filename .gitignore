@@ -1,5 +1,9 @@
 /.metadata/
-
+*
+/.idea/*
+*/.metadata/
+*
 */.idea/*
 */.mvn/*
 *.class
+*.jar

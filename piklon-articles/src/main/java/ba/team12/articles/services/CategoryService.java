@@ -1,7 +1,6 @@
 package ba.team12.articles.services;
 
 import ba.team12.articles.models.Category;
-import ba.team12.articles.models.Location;
 import ba.team12.articles.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

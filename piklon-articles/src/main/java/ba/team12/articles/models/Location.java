@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "locations")
@@ -17,8 +18,8 @@ public class Location {
 	private Long id;
 	
 	@Column(length = 30)
+	@Size(min = 2, message = "Name too short")
 	private String name;
-
 
 	public Location() {
 	}
