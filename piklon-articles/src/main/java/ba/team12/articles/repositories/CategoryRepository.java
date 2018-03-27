@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public interface CategoryRepository extends PagingAndSortingRepository<Category, Long> {
-
-    List<Category> findByname(String  name);
-
+    List<Category>findByNameStartsWith(String  name);
+    List<Category>findAllByOrderByName();
 }

@@ -14,15 +14,17 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
-    @RequestMapping("/add_new_category/{name}")
-    public ResponseEntity addNew(@RequestParam(name = "name") String name) {
-        categoryService.save(new Category(name));
-        return ResponseEntity.ok("Added!");
+    @GetMapping("/categories/all")
+    public ResponseEntity findAll() {
+        return ResponseEntity.ok(categoryService.findAll());
+
     }
 
-    @RequestMapping("/find_category/{name}")
-    public ResponseEntity find(@PathVariable(name = "name") String name) {
-        if (categoryService.findByName(name).size() < 1) return ResponseEntity.ok("Not found!");
-        return ResponseEntity.ok(categoryService.findByName(name));
+
+    @GetMapping("/categories/search/{query}")
+    public ResponseEntity search(@PathVariable(name = "query") String query) {
+        return ResponseEntity.ok(categoryService.search(query));
     }
+
+
 }
