@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface ImageRepository extends PagingAndSortingRepository<Image, Long> {
 
-    List<Image> findBydata(byte[] data);
-    List<Image> findByIdi(Long id);
+    List<Image> findByData(byte[] data);
+    List<Image>  findAllByOrderByValue();
 
 }

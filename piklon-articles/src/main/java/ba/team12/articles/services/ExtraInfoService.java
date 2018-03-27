@@ -13,8 +13,8 @@ public class ExtraInfoService {
     @Autowired
     private ExtraInfoRepository extraInfoRepository;
 
-    public List < ExtraInfo > findByvalue(String value) {
-        return extraInfoRepository.findByvalue(value);
+    public List < ExtraInfo > findByValue(String value) {
+        return extraInfoRepository.findByValue(value);
     }
 
     public void save(ExtraInfo extraInfo) {

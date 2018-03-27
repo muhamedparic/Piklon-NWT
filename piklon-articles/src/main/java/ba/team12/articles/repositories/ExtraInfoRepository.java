@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface ExtraInfoRepository extends PagingAndSortingRepository<ExtraInfo, Long> {
 
-    List<ExtraInfo> findByvalue(String  value);
+    List<ExtraInfo> findByValue(String  value);
 
 }
