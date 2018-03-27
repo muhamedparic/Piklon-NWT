@@ -11,19 +11,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-public class ExtraInfoController {
+public class ExtraInfoController
+{
 
     @Autowired
     private ExtraInfoService extraInfoService;
 
     @GetMapping("/add_new_extrainfo")
-    public ResponseEntity addNew() {
+    public ResponseEntity addNew()
+    {
         extraInfoService.save(new ExtraInfo());
         return ResponseEntity.ok("Added!");
     }
 
     @GetMapping("/find_extrainfo")
-    public ResponseEntity find() {
+    public ResponseEntity find()
+    {
         List<ExtraInfo> locations = extraInfoService.findByvalue("extraInfo");
 
         if (locations.size() > 0)
@@ -31,12 +34,4 @@ public class ExtraInfoController {
         else
             return ResponseEntity.ok("Not found!");
     }
-
-
-
-
-
-
-
-
 }
