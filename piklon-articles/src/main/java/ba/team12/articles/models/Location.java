@@ -19,6 +19,7 @@ public class Location {
 	@Column(length = 30)
 	private String name;
 
+
 	public Location() {
 	}
 

@@ -4,11 +4,26 @@
     <facet type="Spring" name="Spring">
       <configuration />
     </facet>
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="piklon-communication:bin:hibernate.cfg.xml" value="a3c6dc40-e5a9-444a-809c-83f0ff179a5b" />
+          <unit-entry name="piklon-communication:src:hibernate.cfg.xml" value="c3b7b081-7463-4122-9199-80d0edc5d383" />
+          <unit-entry name="piklon-users:bin:hibernate.cfg.xml" value="8aea5f62-0c6f-49cc-b82a-a63c8cbc724d" />
+          <unit-entry name="piklon-users:src:hibernate.cfg.xml" value="65efa3b5-b44e-4aae-adb7-5352bf5b9fc6" />
+        </datasource-map>
+        <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/piklon-communication/bin/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/piklon-communication/src/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/piklon-users/bin/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/piklon-users/src/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_9" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="9.0" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
