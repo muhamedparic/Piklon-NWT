@@ -15,10 +15,10 @@ public class ImageService {
     private ImageRepository imageRepository;
 
     public List < Image > findByData(byte[] data) {
-        return imageRepository.findBydata(data);
+        return imageRepository.findByData(data);
     }
     public List<Image> findAll() {
-        return imageRepository.findAllByOrderByValue();
+        return imageRepository.findAllByOrderById();
     }
 
     public void save(Image image) {

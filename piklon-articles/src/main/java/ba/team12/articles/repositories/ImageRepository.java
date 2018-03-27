@@ -10,6 +10,6 @@ import java.util.List;
 public interface ImageRepository extends PagingAndSortingRepository<Image, Long> {
 
     List<Image> findByData(byte[] data);
-    List<Image>  findAllByOrderByValue();
+    List<Image>  findAllByOrderById();
 
 }
