@@ -14,8 +14,15 @@ public class ExtraInfoTypeService {
     @Autowired
     private ExtraInfoTypeRepository extraInfoTypeRepository;
 
-    public List<ExtraInfoType> findByCategory(Category category) {
-        return extraInfoTypeRepository.findByCategory(category);
+    @Autowired
+    private CategoryService categoryService;
+
+    public List<ExtraInfoType> findByCategory(String categoryName) {
+        List<Category> categories = categoryService.search(categoryName);
+        if (categories.size() > 0)
+            return extraInfoTypeRepository.findByCategory(categories.get(0));
+        else
+            return null;
     }
 
     public List<ExtraInfoType> findByName(String name) {

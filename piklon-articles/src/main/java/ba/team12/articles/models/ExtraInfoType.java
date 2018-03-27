@@ -1,5 +1,7 @@
 package ba.team12.articles.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
@@ -16,11 +18,17 @@ public class ExtraInfoType {
 	@Size(min = 2, message = "Name too short")
 	private String name;
 
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	@JsonIgnore // Temporary fix!
+	private Category category;
+
 	public ExtraInfoType() {
 	}
 
-	public ExtraInfoType(String name) {
+	public ExtraInfoType(String name, Category category) {
 		this.name = name;
+		this.category = category;
 	}
 
 	public Long getId() {
@@ -37,5 +45,13 @@ public class ExtraInfoType {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 }

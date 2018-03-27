@@ -16,7 +16,7 @@ public class Category {
 	private String name;
 
 	@OneToMany(fetch = FetchType.LAZY)
-	@Column(name = "category_id")
+	@JoinColumn(name = "category_id")
 	private List<ExtraInfoType> extraInfoTypes;
 	
 	public Category() {
