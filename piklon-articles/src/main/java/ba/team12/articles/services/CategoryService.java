@@ -13,7 +13,9 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public List<Category> findByName(String name) { return categoryRepository.findByname(name);}
+    public List < Category > findByName(String name) {
+        return categoryRepository.findByname(name);
+    }
 
     public void save(Category category) {
         categoryRepository.save(category);

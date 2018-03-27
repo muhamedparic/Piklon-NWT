@@ -13,12 +13,14 @@ public class ImageService {
     @Autowired
     private ImageRepository imageRepository;
 
-    public List<Image> findBydata(byte[] data) { return imageRepository. findBydata( data);
+    public List < Image > findBydata(byte[] data) {
+        return imageRepository.findBydata(data);
     }
-    public List<Image> findByIdi(Long id) { return imageRepository. findByIdi( id);
+    public List < Image > findByIdi(Long id) {
+        return imageRepository.findByIdi(id);
     }
 
-    public void save( Image  image) {
+    public void save(Image image) {
         imageRepository.save(image);
     }
 }

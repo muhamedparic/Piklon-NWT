@@ -10,20 +10,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-public class CategoryController
-{
+public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
     @RequestMapping("/add_new_category/{name}")
-    public ResponseEntity addNew(@RequestParam(name="name")String name) {
+    public ResponseEntity addNew(@RequestParam(name = "name") String name) {
         categoryService.save(new Category(name));
         return ResponseEntity.ok("Added!");
     }
 
     @RequestMapping("/find_category/{name}")
-    public ResponseEntity find(@PathVariable(name="name")String name) {
-     if(categoryService.findByName(name).size()<1)return ResponseEntity.ok("Not found!");
+    public ResponseEntity find(@PathVariable(name = "name") String name) {
+        if (categoryService.findByName(name).size() < 1) return ResponseEntity.ok("Not found!");
         return ResponseEntity.ok(categoryService.findByName(name));
     }
 }

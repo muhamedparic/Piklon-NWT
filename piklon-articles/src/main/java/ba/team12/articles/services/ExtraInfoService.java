@@ -13,11 +13,11 @@ public class ExtraInfoService {
     @Autowired
     private ExtraInfoRepository extraInfoRepository;
 
-    public List<ExtraInfo> findByvalue(String value) {
-        return extraInfoRepository. findByvalue( value);
+    public List < ExtraInfo > findByvalue(String value) {
+        return extraInfoRepository.findByvalue(value);
     }
 
-    public void save( ExtraInfo extraInfo) {
+    public void save(ExtraInfo extraInfo) {
         extraInfoRepository.save(extraInfo);
     }
 }
