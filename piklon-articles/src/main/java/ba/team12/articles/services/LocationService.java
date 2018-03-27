@@ -21,6 +21,15 @@ public class LocationService {
         return locationRepository.findAllByOrderByName();
     }
 
+    public Location findByExactName(String name) {
+        List<Location> locations = locationRepository.findByName(name);
+
+        if (locations.size() > 0)
+            return locations.get(0);
+        else
+            return null;
+    }
+
     public void save(Location location) {
         locationRepository.save(location);
     }

@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface LocationRepository extends PagingAndSortingRepository<Location, Long> {
 
+    List<Location> findByName(String name);
     List<Location> findAllByOrderByName();
     List<Location> findByNameStartsWith(String name);
 }
