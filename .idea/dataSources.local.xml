@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="piklon-users:bin:hibernate.cfg.xml/Hibernate" uuid="8aea5f62-0c6f-49cc-b82a-a63c8cbc724d">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+    </data-source>
+    <data-source name="piklon-communication:src:hibernate.cfg.xml/Hibernate" uuid="c3b7b081-7463-4122-9199-80d0edc5d383">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <user-name>admin</user-name>
+    </data-source>
+    <data-source name="piklon-communication:bin:hibernate.cfg.xml/Hibernate" uuid="a3c6dc40-e5a9-444a-809c-83f0ff179a5b">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <user-name>admin</user-name>
+    </data-source>
+    <data-source name="piklon-users:src:hibernate.cfg.xml/Hibernate" uuid="65efa3b5-b44e-4aae-adb7-5352bf5b9fc6">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+    </data-source>
+  </component>
+</project>
