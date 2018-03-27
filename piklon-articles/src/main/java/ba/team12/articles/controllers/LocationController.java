@@ -16,7 +16,7 @@ public class LocationController {
         return ResponseEntity.ok(locationService.findAll());
     }
 
-    @RequestMapping(value = "/locations/search/", method = RequestMethod.POST)
+    @RequestMapping(value = "/locations/search", method = RequestMethod.POST)
     public ResponseEntity search(@RequestParam(name = "query") String query) {
         return ResponseEntity.ok(locationService.search(query));
     }
