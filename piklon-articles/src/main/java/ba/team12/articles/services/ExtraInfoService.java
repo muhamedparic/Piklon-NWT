@@ -14,8 +14,12 @@ public class ExtraInfoService {
     private ExtraInfoRepository extraInfoRepository;
 
     public List < ExtraInfo > findByValue(String value) {
+
         return extraInfoRepository.findByValue(value);
     }
+
+
+
 
     public void save(ExtraInfo extraInfo) {
         extraInfoRepository.save(extraInfo);

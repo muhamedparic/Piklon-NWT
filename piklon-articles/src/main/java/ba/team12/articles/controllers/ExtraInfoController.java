@@ -18,7 +18,7 @@ public class ExtraInfoController {
     private ExtraInfoService extraInfoService;
 
     @GetMapping("/extra_infos/search/{query}")
-    public ResponseEntity search(@PathVariable(name = "query") String query) {
+    public ResponseEntity search(@PathVariable(value = "query") String query) {
         return ResponseEntity.ok(extraInfoService.findByValue(query));
     }
 

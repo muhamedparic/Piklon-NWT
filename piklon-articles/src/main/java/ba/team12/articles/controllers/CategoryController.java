@@ -16,6 +16,7 @@ public class CategoryController {
     private CategoryService categoryService;
     @GetMapping("/categories/all")
     public ResponseEntity findAll() {
+        if(categoryService.findAll().size()==0)return null;
         return ResponseEntity.ok(categoryService.findAll());
 
     }
@@ -23,6 +24,7 @@ public class CategoryController {
 
     @GetMapping("/categories/search/{query}")
     public ResponseEntity search(@PathVariable(name = "query") String query) {
+        if(categoryService.search(query).size()==0)return null;
         return ResponseEntity.ok(categoryService.search(query));
     }
 

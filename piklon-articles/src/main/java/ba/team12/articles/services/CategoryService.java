@@ -23,6 +23,17 @@ public class CategoryService {
     public List < Category > findAll() {
         return categoryRepository.findAllByOrderByName();
     }
+
+    public Category findByName(String name) {
+        List<Category> categories = categoryRepository.findByNameStartsWith(name);
+
+        if (categories.size() > 0)
+            return categories.get(0);
+        else
+            return null;
+    }
+
+
     public void save(Category category) {
         categoryRepository.save(category);
     }

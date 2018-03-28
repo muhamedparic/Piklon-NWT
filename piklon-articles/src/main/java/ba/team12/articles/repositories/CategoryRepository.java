@@ -10,4 +10,5 @@ import java.util.List;
 public interface CategoryRepository extends PagingAndSortingRepository<Category, Long> {
     List<Category>findByNameStartsWith(String  name);
     List<Category>findAllByOrderByName();
+
 }
