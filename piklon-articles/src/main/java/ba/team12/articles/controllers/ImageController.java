@@ -21,9 +21,6 @@ public class ImageController {
 
     @GetMapping("/images/all")
     public ResponseEntity findAll() {
-        if(imageService.findAll().size()==0)return null;
         return ResponseEntity.ok(imageService.findAll());
     }
-
-
 }
