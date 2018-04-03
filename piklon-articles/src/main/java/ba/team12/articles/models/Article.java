@@ -2,153 +2,154 @@ package ba.team12.articles.models;
 
 import ba.team12.articles.Condition;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
 
 
 @Entity
 @Table(name = "articles")
 public class Article {
-	
-	@Id
-	@Column
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	@Column(name = "user_id")
-	@Positive(message = "Invalid user_id")
-	private Long userId;
-	
-	@Column(length = 64)
-	@Size(min = 5, message = "Name too short")
-	private String name;
-	
-	@Column
-	@Positive(message = "Invalid price")
-	private int price;
-	
-	@Column(name = "article_condition")
-	@Enumerated(EnumType.STRING)
-	private Condition condition;
-	
-	@ManyToOne
-	@JoinColumn(name = "location_id")
-	@NotNull(message = "Location required")
-	private Location location;
-	
-	@ManyToOne
-	@JoinColumn(name = "category_id")
-	@NotNull(message = "Category required")
-	private Category category;
-	
-	@Column(name = "creation_time")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date creationTime;
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "article_id")
-	private List<Image> images;
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "article_id")
-	private List<ExtraInfo> extraInfo;
+    @Column(name = "user_id")
+    @Positive(message = "Invalid user_id")
+    private Long userId;
 
-	public Article() {
-	}
+    @Column(length = 64)
+    @Size(min = 5, message = "Name too short")
+    private String name;
 
-	public Article(Long userId, String name, int price, Condition condition, Location location, Category category, Date creationTime, List<Image> images, List<ExtraInfo> extraInfo) {
+    @Column
+    @Positive(message = "Invalid price")
+    private int price;
 
-		this.userId = userId;
-		this.name = name;
-		this.price = price;
-		this.condition = condition;
-		this.location = location;
-		this.category = category;
-		this.creationTime = creationTime;
-		this.images = images;
-		this.extraInfo = extraInfo;
-	}
+    @Column(name = "article_condition")
+    @Enumerated(EnumType.STRING)
+    private Condition condition;
 
-	public Long getId() {
-		return id;
-	}
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    @NotNull(message = "Location required")
+    private Location location;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    @NotNull(message = "Category required")
+    private Category category;
 
-	public Long getUserId() {
-		return userId;
-	}
+    @Column(name = "creation_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationTime;
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "article_id")
+    private List<Image> images;
 
-	public String getName() {
-		return name;
-	}
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "article_id")
+    private List<ExtraInfo> extraInfo;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Article() {
+    }
 
-	public int getPrice() {
-		return price;
-	}
+    public Article(Long userId, String name, int price, Condition condition, Location location, Category category, Date creationTime, List<Image> images, List<ExtraInfo> extraInfo) {
 
-	public void setPrice(int price) {
-		this.price = price;
-	}
+        this.userId = userId;
+        this.name = name;
+        this.price = price;
+        this.condition = condition;
+        this.location = location;
+        this.category = category;
+        this.creationTime = creationTime;
+        this.images = images;
+        this.extraInfo = extraInfo;
+    }
 
-	public Location getLocation() {
-		return location;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setLocation(Location location) {
-		this.location = location;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Category getCategory() {
-		return category;
-	}
+    public Long getUserId() {
+        return userId;
+    }
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
-	public Date getCreationTime() {
-		return creationTime;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setCreationTime(Date creationTime) {
-		this.creationTime = creationTime;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public List<Image> getImages() {
-		return images;
-	}
+    public int getPrice() {
+        return price;
+    }
 
-	public void setImages(List<Image> images) {
-		this.images  = images;
-	}
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
-	public Condition getCondition() {
-		return this.condition;
-	}
+    public Location getLocation() {
+        return location;
+    }
 
-	public void setCondition(Condition condition) {
-		this.condition = condition;
-	}
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
-	public List<ExtraInfo> getExtraInfo() {
-		return extraInfo;
-	}
+    public Category getCategory() {
+        return category;
+    }
 
-	public void setExtraInfo(List<ExtraInfo> extraInfo) {
-		this.extraInfo = extraInfo;
-	}
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Date getCreationTime() {
+        return creationTime;
+    }
+
+    public void setCreationTime(Date creationTime) {
+        this.creationTime = creationTime;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
+    public Condition getCondition() {
+        return this.condition;
+    }
+
+    public void setCondition(Condition condition) {
+        this.condition = condition;
+    }
+
+    public List<ExtraInfo> getExtraInfo() {
+        return extraInfo;
+    }
+
+    public void setExtraInfo(List<ExtraInfo> extraInfo) {
+        this.extraInfo = extraInfo;
+    }
 }
