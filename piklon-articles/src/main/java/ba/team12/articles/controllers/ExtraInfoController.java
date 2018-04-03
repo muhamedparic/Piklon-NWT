@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.awt.*;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,10 @@ public class ExtraInfoController {
 
     @GetMapping("/extra_infos/search/{query}")
     public ResponseEntity search(@PathVariable(value = "query") String query) {
-        return ResponseEntity.ok(extraInfoService.findByValue(query));
+        List < ExtraInfo > extraInfos = extraInfoService.findByValue(query);
+        if (extraInfos != null)
+            return ResponseEntity.ok(extraInfos);
+        else
+            return ResponseEntity.ok("null");
     }
-
 }

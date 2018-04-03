@@ -19,10 +19,13 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.findAll());
     }
 
-
     @GetMapping("/categories/search/{query}")
     public ResponseEntity search(@PathVariable(name = "query") String query) {
-        return ResponseEntity.ok(categoryService.search(query));
+        List<Category>categories = categoryService.search(query);
+        if (categories != null)
+            return ResponseEntity.ok(categories);
+        else
+            return ResponseEntity.ok("null");
     }
 
 
