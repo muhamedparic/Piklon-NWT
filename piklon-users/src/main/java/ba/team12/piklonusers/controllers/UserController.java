@@ -23,6 +23,7 @@ public class UserController {
     @Autowired
     TokenRepository tokenRepository;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/all")
     public List<User> getAll(){
         return (List<User>) userRepository.findAll();
@@ -71,11 +72,11 @@ public class UserController {
         else return "false";
        // return logindata.get(0);
     }*/
-    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/login")
     public String Login(@Valid @RequestBody Login login) {
         User user = (User) userRepository.findByUsername(login.getUsername());
-        if (user == null) return "Username not found";
+        if (user == null) return "{\"token\": \"" + "Username not found" + "\"}";
         String token = randomString(30);
         if (user.getPassword_hash().equals(Integer.toString(login.getPassword().hashCode()))) {
             Token t = new Token();
@@ -85,9 +86,9 @@ public class UserController {
             Token t_past = tokenRepository.findByUserId(user.getId());
             if (t_past != null) tokenRepository.delete(t_past);
             tokenRepository.save(t);
-            return token;
+            return "{\"token\": \"" + token + "\"}";
         }
-        else return "false";
+        else return "{\"token\": \"" + "null" + "\"}";
         // return logindata.get(0);
     }
 
