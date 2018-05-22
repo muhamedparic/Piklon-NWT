@@ -4,8 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 public class Login {
-
+    @Column(name = "username")
     String username;
+    @Column(name = "password")
     String password;
 
     public String getUsername() {

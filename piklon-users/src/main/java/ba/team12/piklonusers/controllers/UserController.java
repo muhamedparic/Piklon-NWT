@@ -1,6 +1,7 @@
 package ba.team12.piklonusers.controllers;
 
 
+import ba.team12.piklonusers.models.Login;
 import ba.team12.piklonusers.models.Token;
 import ba.team12.piklonusers.models.User;
 import ba.team12.piklonusers.repositories.TokenRepository;
@@ -51,7 +52,7 @@ public class UserController {
         return "User is deleted";
     }
 
-    @PostMapping("/login")
+    /*@PostMapping("/login")
     public String login(@Valid @RequestBody String login) {
         List<String> logindata= Arrays.asList(login.split(","));
         User user = (User) userRepository.findByUsername(logindata.get(0));
@@ -69,6 +70,25 @@ public class UserController {
         }
         else return "false";
        // return logindata.get(0);
+    }*/
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/login")
+    public String Login(@Valid @RequestBody Login login) {
+        User user = (User) userRepository.findByUsername(login.getUsername());
+        if (user == null) return "Username not found";
+        String token = randomString(30);
+        if (user.getPassword_hash().equals(Integer.toString(login.getPassword().hashCode()))) {
+            Token t = new Token();
+            t.setUser_id(user.getId());
+            t.setUser_token(token);
+            t.setExpiration_date(getExpirationDate());
+            Token t_past = tokenRepository.findByUserId(user.getId());
+            if (t_past != null) tokenRepository.delete(t_past);
+            tokenRepository.save(t);
+            return token;
+        }
+        else return "false";
+        // return logindata.get(0);
     }
 
     @PostMapping("/checkAuthorization")
