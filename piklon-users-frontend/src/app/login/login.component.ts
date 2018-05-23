@@ -1,20 +1,18 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { URLSearchParams } from '@angular/http';
 import { logging } from 'protractor';
 import { HttpClient} from '@angular/common/http'
 import {Http, Response, RequestOptions, Headers} from '@angular/http'
-
+import {Router} from '@angular/router'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class AppComponent {
-  title = 'app';
-  
+export class LoginComponent implements OnInit {
 
-  /*constructor(private httpClient:HttpClient) {}
+  constructor(private httpClient:HttpClient, private router: Router) {}
   LogIn() {
   //alert("hhh")
   //this.testRequest()
@@ -39,7 +37,8 @@ export class AppComponent {
         alert("Username not found")
       }
       else {
-        alert("Uspjesna prijava!")
+        //alert("Uspjesna prijava!")
+        this.router.navigateByUrl('/pocetna')
       }
       console.log(data)
     }
@@ -69,7 +68,8 @@ export class AppComponent {
             console.log(JSON.stringify(error.json()));
         });
 }*/
+
+  ngOnInit() {
+  }
+
 }
-
-
-

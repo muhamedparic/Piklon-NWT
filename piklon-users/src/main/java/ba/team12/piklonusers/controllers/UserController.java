@@ -28,15 +28,15 @@ public class UserController {
     public List<User> getAll(){
         return (List<User>) userRepository.findAll();
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value="/insert")
     public String createUser(@Valid @RequestBody final User user) {
             if (userRepository.findByUsername(user.getUsername()) == null) {
                 user.setPassword_hash(Integer.toString(user.getPassword_hash().hashCode()));
                 userRepository.save(user);
-                return "User is registered";
+                return "{\"status\": \"" + "User is registered" + "\"}";
             }
-            else return "Inavalid username";
+            else return "{\"status\": \"" + "Invalid username" + "\"}";
     }
 
     @GetMapping("/get/{id}")

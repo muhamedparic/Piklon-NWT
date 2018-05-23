@@ -2,12 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pocetna',
-  template: `
-    <p>
-      pocetna works!
-    </p>
-  `,
-  styles: []
+  templateUrl: './pocetna.component.html',
+  styleUrls: ['./pocetna.component.css']
 })
 export class PocetnaComponent implements OnInit {
 
