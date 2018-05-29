@@ -11,6 +11,7 @@ public class LocationController {
     @Autowired
     private LocationService locationService;
 
+
     @GetMapping("/locations/all")
     public ResponseEntity findAll() {
         return ResponseEntity.ok(locationService.findAll());
@@ -18,6 +19,7 @@ public class LocationController {
 
     @RequestMapping(value = "/locations/search", method = RequestMethod.POST)
     public ResponseEntity search(@RequestParam(name = "query") String query) {
+
         return ResponseEntity.ok(locationService.search(query));
     }
 }

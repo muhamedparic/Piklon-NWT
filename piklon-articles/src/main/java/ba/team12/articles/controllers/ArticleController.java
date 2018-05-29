@@ -21,7 +21,7 @@ public class ArticleController {
         if (article != null)
             return ResponseEntity.ok(article);
         else
-            return ResponseEntity.ok("null");
+            return ResponseEntity.notFound().build();
     }
 
     @RequestMapping(value = "/articles/search", method = RequestMethod.POST)
@@ -31,7 +31,7 @@ public class ArticleController {
         if (articles != null)
             return ResponseEntity.ok(articles);
         else
-            return ResponseEntity.ok("null");
+            return ResponseEntity.notFound().build();
     }
 
     @RequestMapping(value = "/articles/all_from_category", method = RequestMethod.POST)
@@ -41,7 +41,7 @@ public class ArticleController {
         if (articles != null)
             return ResponseEntity.ok(articles);
         else
-            return ResponseEntity.ok("null");
+            return ResponseEntity.notFound().build();
     }
 
     @RequestMapping(value = "/articles/all_from_category_and_location", method = RequestMethod.POST)
@@ -52,6 +52,6 @@ public class ArticleController {
         if (articles != null)
             return ResponseEntity.ok(articles);
         else
-            return ResponseEntity.ok("null");
+            return ResponseEntity.notFound().build();
     }
 }
