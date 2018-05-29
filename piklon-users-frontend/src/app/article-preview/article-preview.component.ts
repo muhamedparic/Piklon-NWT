@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-preview.component.css']
 })
 export class ArticlePreviewComponent implements OnInit {
-
+  productName: string = "Test Name";
+  productCategory: string = "Test Category";
+  productPrice: string = "Test Price";
+  
   constructor() { }
 
   ngOnInit() {

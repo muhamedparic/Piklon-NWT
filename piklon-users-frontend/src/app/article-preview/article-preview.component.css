@@ -1,0 +1,16 @@
+h1 {
+  font-family: monospace;
+  font-style: bold;
+}
+
+h2 {
+  font-family: monospace;
+  font-style: normal;
+  margin: 0;
+  margin-bottom: 5px;
+  display: block;
+}
+
+img {
+  float: left;
+}
