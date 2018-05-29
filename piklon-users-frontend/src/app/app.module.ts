@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistracijaComponent } from './registracija/registracija.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ArticleComponent } from './article/article.component';
+import { ArticlePreviewComponent } from './article-preview/article-preview.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ArticleComponent } from './article/article.component';
     LoginComponent,
     RegistracijaComponent,
     NavbarComponent,
-    ArticleComponent
+    ArticleComponent,
+    ArticlePreviewComponent
   ],
   imports: [
     BrowserModule,
