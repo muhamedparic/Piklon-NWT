@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Article } from '../article/article.model.ts';
+import { Observable } from 'rxjs';
+
+import { Article } from '../article/article.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
 
-  private const url: string = 'localhost:8080/articles/search';
+  private readonly url: string = 'localhost:8080/articles/search';
 
   constructor(private http: HttpClient) { }
 
   public search(query: string): Observable<Article> {
-    return this.http.get<Article>(url, { 'params': 'query=' + query });
+    return this.http.get<Article>(this.url + '?query=' + query);
   }
 }
