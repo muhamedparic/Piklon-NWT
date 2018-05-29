@@ -4,7 +4,7 @@ import ba.team12.articles.models.Location;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
-
+/*
 @Component
 public class Consumer {
 
@@ -25,3 +25,4 @@ public class Consumer {
     }
 }
 
+*/
