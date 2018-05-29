@@ -9,6 +9,11 @@ import { RegistracijaComponent } from './registracija/registracija.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticlePreviewComponent } from './article-preview/article-preview.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CommentInputComponent } from './comment-input/comment-input.component';
 
 
 @NgModule({
@@ -19,7 +24,12 @@ import { ArticlePreviewComponent } from './article-preview/article-preview.compo
     RegistracijaComponent,
     NavbarComponent,
     ArticleComponent,
-    ArticlePreviewComponent
+    ArticlePreviewComponent,
+    CommentComponent,
+    CommentListComponent,
+    SearchResultsComponent,
+    UserProfileComponent,
+    CommentInputComponent
   ],
   imports: [
     BrowserModule,
