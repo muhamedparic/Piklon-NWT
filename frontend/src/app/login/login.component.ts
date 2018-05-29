@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Response } from '@angular/http';
 
 import { LoginService } from '../login.service';
 
@@ -26,6 +27,8 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
-    this.loginService.login("uname", "pass").subscribe();
+    this.loginService.login(this.loginForm.value.username.trim(), this.loginForm.value.password).subscribe((response: Response) => {
+        console.log(response.text());
+    });
   }
 }

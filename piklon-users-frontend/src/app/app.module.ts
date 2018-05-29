@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { PocetnaComponent } from './pocetna/pocetna.component';
 import { LoginComponent } from './login/login.component';
 import { RegistracijaComponent } from './registracija/registracija.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ArticleComponent } from './article/article.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { RegistracijaComponent } from './registracija/registracija.component';
     AppComponent,
     PocetnaComponent,
     LoginComponent,
-    RegistracijaComponent
+    RegistracijaComponent,
+    NavbarComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

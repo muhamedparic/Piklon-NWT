@@ -9,18 +9,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  private readonly endpoint: string = '';
+  private readonly endpoint: string = '/users/login';
   private readonly tokenName: string = '';
   private readonly authHeader: string = '';
 
   private readonly headers: Headers =
-    new Headers({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': this.authHeader });
+    new Headers({ 'Content-Type': 'application/json', 'Authorization': this.authHeader });
 
   constructor(private http: Http) { }
 
   public login(username: string, password: string): Observable<any> {
-    let parameters: string = `username=${username}&password=${password}&grant_type=password`;
-    console.log(parameters);
+    let parameters: string = JSON.stringify({ 'username': username, 'password': password });
 
     return this.http.post(this.endpoint, parameters, { headers: this.headers })
   }

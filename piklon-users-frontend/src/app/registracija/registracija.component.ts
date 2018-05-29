@@ -12,7 +12,7 @@ import {Router} from '@angular/router'
 })
 export class RegistracijaComponent implements OnInit {
 
-  constructor(private httpClient:HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   Registracija(){
     var ime = ((document.getElementById("firstnameInput") as HTMLInputElement).value);
@@ -35,7 +35,7 @@ export class RegistracijaComponent implements OnInit {
   .subscribe(
     (data:any) => {
       var response = data["status"]
-    
+
       if (response == "Invalid username") {
         alert("Neuspjesna registracija! Username je zauzet.")
       }
