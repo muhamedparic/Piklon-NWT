@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="article-preview.component.css">
-<img src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-256.png"></img>
-<h1>{{productName}}</h1>
-<h2>{{productCategory}}</h2>
-<h2>{{productPrice}}</h2>
+<img src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-256.png">
+<h1><a [routerLink] = "['/article', {{article.id}}]">{{article.name}}</a></h1>
+<h2>{{article.category}}</h2>
+<h2>{{article.price}}</h2>

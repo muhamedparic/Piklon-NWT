@@ -1,8 +1,10 @@
 export class Article {
     public id: number;
-    public userId: number;
+    public username: string;
     public name: string;
     public price: number;
     public condition: string;
-    // Add location, category, and creation time later
+    public location: string;
+    public category: string;
+    public creationTime: string;
 }

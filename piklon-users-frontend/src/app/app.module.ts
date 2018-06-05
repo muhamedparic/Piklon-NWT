@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule} from '@angular/router'
-import { HttpClientModule} from '@angular/common/http'
+import { RouterModule } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http'
+
 import { AppComponent } from './app.component';
 import { PocetnaComponent } from './pocetna/pocetna.component';
 import { LoginComponent } from './login/login.component';
@@ -9,6 +10,12 @@ import { RegistracijaComponent } from './registracija/registracija.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticlePreviewComponent } from './article-preview/article-preview.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CommentInputComponent } from './comment-input/comment-input.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 @NgModule({
@@ -19,7 +26,12 @@ import { ArticlePreviewComponent } from './article-preview/article-preview.compo
     RegistracijaComponent,
     NavbarComponent,
     ArticleComponent,
-    ArticlePreviewComponent
+    ArticlePreviewComponent,
+    CommentComponent,
+    CommentListComponent,
+    SearchResultsComponent,
+    UserProfileComponent,
+    CommentInputComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +48,10 @@ import { ArticlePreviewComponent } from './article-preview/article-preview.compo
       {
         path: 'registracija',
         component: RegistracijaComponent
+      },
+      {
+        path: 'search',
+        component: SearchResultsComponent
       }
     ])
   ],
