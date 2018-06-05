@@ -3,9 +3,11 @@ package ba.team12.articles.controllers;
 import ba.team12.articles.models.Article;
 import ba.team12.articles.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -54,4 +56,32 @@ public class ArticleController {
         else
             return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/userofday")
+    public ResponseEntity<String> Userofday() {
+        final String uri="http://localhost:8082/users/get/1";
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        ResponseEntity<String> response=null;
+        try{
+            response=restTemplate.exchange(uri,
+                    HttpMethod.GET, getHeaders(),String.class);
+            System.out.println(response.getBody());
+        }
+        catch (Exception ex)
+        {
+            return ResponseEntity.ok("not ok");
+        }
+
+
+        return  ResponseEntity.ok("String");
+    }
+
+    private static HttpEntity<?> getHeaders() throws IOException {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
+        return new HttpEntity<>(headers);
+    }
+
+
 }
