@@ -1,3 +1,6 @@
-<p>
-  search-results works!
-</p>
+<ul *ngFor="let article of articles">
+  <img src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-256.png">
+  <h1><a>{{ article.name }}</a></h1>
+  <h2>{{ article.category }}</h2>
+  <h2>{{ article.price }}</h2>
+</ul>

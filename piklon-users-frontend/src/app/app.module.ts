@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http'
+
 import { AppComponent } from './app.component';
 import { PocetnaComponent } from './pocetna/pocetna.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +15,7 @@ import { CommentListComponent } from './comment-list/comment-list.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CommentInputComponent } from './comment-input/comment-input.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 @NgModule({
@@ -46,6 +48,10 @@ import { CommentInputComponent } from './comment-input/comment-input.component';
       {
         path: 'registracija',
         component: RegistracijaComponent
+      },
+      {
+        path: 'search',
+        component: SearchResultsComponent
       }
     ])
   ],
