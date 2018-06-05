@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PocetnaComponent } from './pocetna/pocetna.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import { PocetnaComponent } from './article-preview/article-preview.component';
+import { ArticlePreviewComponent } from './article-preview/article-preview.component';
+import { UserOfTheDayComponent } from './user-of-the-day/user-of-the-day.component';
 
 const routes: Routes = [
     {path: 'pocetna', component: PocetnaComponent},
     {path: 'search', component: SearchResultsComponent},
-    {path: 'article/:id', component: ArticlePreviewComponent}
+    {path: 'article/:id', component: ArticlePreviewComponent},
+    {path: 'user_of_the_day', component: UserOfTheDayComponent}
 ];
 
 @NgModule({

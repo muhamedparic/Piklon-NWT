@@ -1,8 +1,20 @@
 {
-       "/api": {
-           "target": "https://localhost:8082",
-           "secure": true,
-           "changeOrigin": true,
-           "logLevel": "debug"
-       }
-     }
+  "/api": {
+     "target": "https://localhost:8082",
+     "secure": true,
+     "changeOrigin": true,
+     "logLevel": "debug"
+  },
+  "/articles/*": {
+   "target": "https://localhost:8080",
+       "secure": true,
+       "changeOrigin": true,
+       "logLevel": "debug"
+  },
+  "/8081/*": {
+   "target": "https://localhost:8081",
+       "secure": true,
+       "changeOrigin": true,
+       "logLevel": "debug"
+  }
+}
