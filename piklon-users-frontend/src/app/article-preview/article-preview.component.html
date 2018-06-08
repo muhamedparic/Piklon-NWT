@@ -1,4 +1,20 @@
-<img src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-256.png">
+<!--<link rel="stylesheet" href="article-preview.component.css">-->
+<!--<img src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-256.png">
 <h1><a [routerLink] = "['/article', {{article.id}}]">{{article.name}}</a></h1>
 <h2>{{article.category}}</h2>
-<h2>{{article.price}}</h2>
+<h2>{{article.price}}</h2>-->
+<div class="col-lg-4 col-md-6 mb-4">
+  <div class="card h-100">
+    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+    <div class="card-body">
+      <h4 class="card-title">
+        <a [routerLink] = "['/article', {{article.id}}]">{{article.name}}</a>
+      </h4>
+      <h5>{{article.price}}</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+    </div>
+  </div>
+</div>
