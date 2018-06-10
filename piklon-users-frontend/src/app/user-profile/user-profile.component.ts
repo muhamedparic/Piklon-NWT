@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticlePreviewComponent } from './article-preview/article-preview.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
   username: string = "Test Username";
-  
+
   constructor() { }
 
   ngOnInit() {

@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistracijaComponent } from './registracija/registracija.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ArticleComponent } from './article/article.component';
-//import { ArticlePreviewComponent } from './article-preview/article-preview.component';
+import { ArticlePreviewComponent } from './article-preview/article-preview.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentListComponent } from './comment-list/comment-list.component';
 //import { SearchResultsComponent } from './search-results/search-results.component';
@@ -27,7 +27,7 @@ import { UserOfTheDayComponent } from './user-of-the-day/user-of-the-day.compone
     RegistracijaComponent,
     NavbarComponent,
     ArticleComponent,
-    //ArticlePreviewComponent,
+    ArticlePreviewComponent,
     CommentComponent,
     CommentListComponent,
     //SearchResultsComponent,
@@ -59,6 +59,10 @@ import { UserOfTheDayComponent } from './user-of-the-day/user-of-the-day.compone
       ,{
         path: 'user_of_the_day',
         component: UserOfTheDayComponent
+      },
+      {
+        path: 'profile',
+        component: UserProfileComponent
       }
     ])
   ],
