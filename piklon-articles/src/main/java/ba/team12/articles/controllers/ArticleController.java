@@ -1,13 +1,13 @@
 package ba.team12.articles.controllers;
 
 import ba.team12.articles.models.Article;
+import ba.team12.articles.models.TokenDecrypter;
 import ba.team12.articles.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -23,7 +23,7 @@ public class ArticleController {
         if (article != null)
             return ResponseEntity.ok(article);
         else
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok("null");
     }
 
     @RequestMapping(value = "/articles/search", method = RequestMethod.POST)
@@ -33,7 +33,7 @@ public class ArticleController {
         if (articles != null)
             return ResponseEntity.ok(articles);
         else
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok("null");
     }
 
     @RequestMapping(value = "/articles/all_from_category", method = RequestMethod.POST)
@@ -43,7 +43,7 @@ public class ArticleController {
         if (articles != null)
             return ResponseEntity.ok(articles);
         else
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok("null");
     }
 
     @RequestMapping(value = "/articles/all_from_category_and_location", method = RequestMethod.POST)
@@ -54,33 +54,17 @@ public class ArticleController {
         if (articles != null)
             return ResponseEntity.ok(articles);
         else
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok("null");
     }
 
-    @GetMapping("/userofday")
-    public ResponseEntity<String> Userofday() {
-        final String uri="http://localhost:8082/users/get/1";
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        ResponseEntity<String> response=null;
-        try{
-            response=restTemplate.exchange(uri,
-                    HttpMethod.GET, getHeaders(),String.class);
-            System.out.println(response.getBody());
-        }
-        catch (Exception ex)
-        {
-            return ResponseEntity.ok("not ok");
-        }
-
-
-        return  ResponseEntity.ok("String");
-    }
-
-    private static HttpEntity<?> getHeaders() throws IOException {
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
-        return new HttpEntity<>(headers);
+    @DeleteMapping("/deletearticle/{id}")
+    public ResponseEntity deletebyId(@RequestHeader TokenDecrypter tokenDecrypter, @PathVariable(name = "id") Long id) {
+         String string=tokenDecrypter.getUserToken();
+         if(string.contains("admin")) {//korisnik je admin zaista i moze brisati podatke
+             articleService.deleteByID(id);
+             return ResponseEntity.ok(HttpStatus.OK);
+         }
+      return ResponseEntity.badRequest().body(HttpStatus.BAD_REQUEST);
     }
 
 
