@@ -1,0 +1,35 @@
+h1 {
+  font-family: monospace;
+  font-style: normal;
+}
+
+button {
+  padding: 15px;
+  border: none;
+  width: 10%;
+  border-radius: 12px;
+  color: black;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #5F9F9F;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
+}
+
+input {
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: 6px;
+  display: block;
+  margin : 0 auto;
+}
+
+input:focus {
+  outline: 0;
+  background-color: #fbfbfb;
+}

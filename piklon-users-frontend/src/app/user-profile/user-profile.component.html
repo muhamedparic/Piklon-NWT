@@ -1,0 +1,76 @@
+<!--<link rel="stylesheet" href="user-profile.component.css">-->
+<!--<h1>{{username}}<h1>
+<h2>{{name}} {{lastName}}</h2>
+<h2>{{email}}</h2>-->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button">Go!</button>
+                  </span>
+              </div>
+            </div>
+          </div>
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">User info</h5>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="well well-sm">
+                <div class="row">
+                  <div class="">
+                    <h4>{{name}} {{lastName}}</h4>
+                      <small><cite title="San Francisco, USA">{{location}}<i class="glyphicon glyphicon-map-marker">
+                      </i></cite></small>
+                      <p>
+                      <i class="glyphicon glyphicon-envelope"></i>{{userEmail}}
+                      <br />
+                      <i class="glyphicon glyphicon-globe"></i><a href=""></a>
+                      <br />
+                      <i class="glyphicon glyphicon-gift"></i>{{dateJoined}}</p>
+                      <!-- Split button -->
+                      <div class="btn-group">
+
+                      </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+            </div>
+          </div>
+    </div>
+    <!-- /.col-lg-3 -->
+    <div class="col-lg-9">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+              <app-article-preview></app-article-preview>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <app-article-preview></app-article-preview>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <app-article-preview></app-article-preview>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <app-article-preview></app-article-preview>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <app-article-preview></app-article-preview>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <app-article-preview></app-article-preview>
+            </div>
+          </div>
+          <!-- /.row -->
+    </div>
+    <!-- /.col-lg-9 -->
+  </div>
+</div>

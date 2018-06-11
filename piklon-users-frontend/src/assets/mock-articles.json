@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "username": "korisnik_1",
+    "name": "VW Golf 5",
+    "price": 12500,
+    "condition": "USED",
+    "location": "Sarajevo",
+    "category": "Automobili",
+    "creationTime": "2018-05-22 18:23:42"
+  },
+  {
+    "id": 1,
+    "username": "korisnik_2",
+    "name": "Stan na Koševskom Brdu",
+    "price": 70000,
+    "condition": "USED",
+    "location": "Sarajevo",
+    "category": "Stanovi",
+    "creationTime": "2018-05-06 11:26:51"
+  },
+  {
+    "id": 1,
+    "username": "korisnik_3",
+    "name": "Igra GTA 5",
+    "price": 65,
+    "condition": "NEW",
+    "location": "Tuzla",
+    "category": "Video igre",
+    "creationTime": "2018-05-06 11:26:51"
+  }
+]
