@@ -1,8 +1,10 @@
 package ba.team12.articles.controllers;
 
 import ba.team12.articles.models.Article;
+import ba.team12.articles.models.TokenDecrypter;
 import ba.team12.articles.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,4 +56,16 @@ public class ArticleController {
         else
             return ResponseEntity.ok("null");
     }
+
+    @DeleteMapping("/deletearticle/{id}")
+    public ResponseEntity deletebyId(@RequestHeader TokenDecrypter tokenDecrypter, @PathVariable(name = "id") Long id) {
+         String string=tokenDecrypter.getUserToken();
+         if(string.contains("admin")) {//korisnik je admin zaista i moze brisati podatke
+             articleService.deleteByID(id);
+             return ResponseEntity.ok(HttpStatus.OK);
+         }
+      return ResponseEntity.badRequest().body(HttpStatus.BAD_REQUEST);
+    }
+
+
 }

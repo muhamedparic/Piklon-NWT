@@ -53,4 +53,9 @@ public class ArticleService {
         else
             return null;
     }
+
+    public  void deleteByID(Long l) {
+        articleRepository.deleteById(l);
+    }
+
 }
