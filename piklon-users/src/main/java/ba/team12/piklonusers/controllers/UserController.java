@@ -33,10 +33,23 @@ public class UserController {
     public String createUser(@Valid @RequestBody final User user) {
             if (userRepository.findByUsername(user.getUsername()) == null) {
                 user.setPassword_hash(Integer.toString(user.getPassword_hash().hashCode()));
+                user.setIsAdmin("false");
                 userRepository.save(user);
                 return "{\"status\": \"" + "User is registered" + "\"}";
             }
             else return "{\"status\": \"" + "Invalid username" + "\"}";
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping(value="/insertAdmin")
+    public String createAdmin(@Valid @RequestBody final User user) {
+        if (userRepository.findByUsername(user.getUsername()) == null) {
+            user.setPassword_hash(Integer.toString(user.getPassword_hash().hashCode()));
+            user.setIsAdmin("true");
+            userRepository.save(user);
+            return "{\"status\": \"" + "Admin is registered" + "\"}";
+        }
+        else return "{\"status\": \"" + "Invalid username" + "\"}";
     }
 
     @GetMapping("/get/{id}")
@@ -77,7 +90,11 @@ public class UserController {
     public String Login(@Valid @RequestBody Login login) {
         User user = (User) userRepository.findByUsername(login.getUsername());
         if (user == null) return "{\"token\": \"" + "Username not found" + "\"}";
-        String token = randomString(30);
+        String token = "";
+        if (user.getIsAdmin().equals("true")) {
+            token = "admin" + randomString(25);
+        }
+        else {token = randomString(30);}
         if (user.getPassword_hash().equals(Integer.toString(login.getPassword().hashCode()))) {
             Token t = new Token();
             t.setUser_id(user.getId());

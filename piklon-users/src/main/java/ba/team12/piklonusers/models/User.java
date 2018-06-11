@@ -33,6 +33,9 @@ public class User {
     @Column(name = "phone")
     String phone;
 
+    @Column(name = "isAdmin")
+    String isAdmin;
+
     public User(Long i, String fname, String lname, String uname, String pass, String mail, String tel) {
         id = i;
         first_name = fname;
@@ -97,5 +100,13 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }
