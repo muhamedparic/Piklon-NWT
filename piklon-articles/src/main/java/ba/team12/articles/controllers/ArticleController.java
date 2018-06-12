@@ -1,7 +1,6 @@
 package ba.team12.articles.controllers;
 
 import ba.team12.articles.models.Article;
-import ba.team12.articles.models.Location;
 import ba.team12.articles.models.Pomocniartikl;
 import ba.team12.articles.models.TokenDecrypter;
 import ba.team12.articles.repositories.CategoryRepository;
@@ -16,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ArticleController {
 
     @Autowired

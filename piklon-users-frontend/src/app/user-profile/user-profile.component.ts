@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticlePreviewComponent } from './article-preview/article-preview.component';
+import { ArticlePreviewComponent } from '../article-preview/article-preview.component';
+
+class User {
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  phone: string;
+}
 
 @Component({
   selector: 'app-user-profile',
@@ -7,7 +15,7 @@ import { ArticlePreviewComponent } from './article-preview/article-preview.compo
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  username: string = "Test Username";
+  user: User;
 
   constructor() { }
 

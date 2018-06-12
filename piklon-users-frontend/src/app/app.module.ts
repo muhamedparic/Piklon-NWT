@@ -12,7 +12,7 @@ import { ArticleComponent } from './article/article.component';
 import { ArticlePreviewComponent } from './article-preview/article-preview.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentListComponent } from './comment-list/comment-list.component';
-//import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CommentInputComponent } from './comment-input/comment-input.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
@@ -30,7 +30,7 @@ import { UserOfTheDayComponent } from './user-of-the-day/user-of-the-day.compone
     ArticlePreviewComponent,
     CommentComponent,
     CommentListComponent,
-    //SearchResultsComponent,
+    SearchResultsComponent,
     UserProfileComponent,
     CommentInputComponent,
     CreateArticleComponent,
@@ -51,18 +51,26 @@ import { UserOfTheDayComponent } from './user-of-the-day/user-of-the-day.compone
       {
         path: 'registracija',
         component: RegistracijaComponent
-      }//,
-      // {
-      //   path: 'search',
-      //   component: SearchResultsComponent
-      // }
-      ,{
+      },
+      {
+         path: 'search',
+         component: SearchResultsComponent
+      },
+      {
         path: 'user_of_the_day',
         component: UserOfTheDayComponent
       },
       {
         path: 'profile',
         component: UserProfileComponent
+      },
+      {
+        path: 'create_article',
+        component: CreateArticleComponent
+      },
+      {
+        path: 'article/:id',
+        component: ArticleComponent
       }
     ])
   ],

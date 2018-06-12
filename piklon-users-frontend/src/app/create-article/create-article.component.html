@@ -1,27 +1,30 @@
 <!--<link rel="stylesheet" href="create-article.component.css">-->
-<form>
+
+<app-navbar></app-navbar>
+
+<form style="position: absolute; margin-top: 50px">
   <p>Name:</p><br>
-  <input type="text" name="title">
+  <input type="text" name="title" id="name">
   <br>
   <p>Location:</p><br>
-  <input type="text" name="location">
+  <input type="text" name="location" id="location">
   <br>
   <p>Price:</p><br>
-  <input type="text" name="price">
+  <input type="text" name="price" id="price">
   <br>
   <br>
   <p>Condition:</p>
-  <select name="condition">
+  <select name="condition" id="condition">
    <option value="new">New</option>
    <option value="used">Used</option>
+   <option value="used">NotApplicable</option>
   </select>
   <br>
   <br>
   <p>Category:</p>
-  <select name="category">
-   <option value="category1">Category 1</option>
-   <option value="category2">Category 2</option>
+  <select name="category" id="category">
+   <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
   </select>
   <br><br>
-  <button type="submit">SUBMIT</button>
+  <button type="button" (click)="submit()">SUBMIT</button>
 </form>

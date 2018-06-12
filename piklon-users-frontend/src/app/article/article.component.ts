@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 import { ArticleService } from './article.service';
+import { Article } from './article.model';
 
 @Component({
   selector: 'app-article',
@@ -10,22 +12,22 @@ import { ArticleService } from './article.service';
 })
 export class ArticleComponent implements OnInit {
   articleName: string = "";
+  articlePrice: number = -1;
   sellerId: string = "";
   category: string = "";
 
-  constructor(private articleService: ArticleService, private route: ActivatedRoute) { }
+  constructor(private articleService: ArticleService, private route: ActivatedRoute, private httpClient: HttpClient) { }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      let id: number = Number(params['id']);
-      this.articleService.findById(id).subscribe(response => {
-        let article: any = JSON.parse(response.text());
-        this.articleName = article.name;
-        this.sellerId = article.userId;
-        this.category = article.category.name;
-      }, error => {
-        console.log('HTTP request error for articleId=' + id.toString());
-      });
+    let that: any = this;
+    this.route.params.subscribe(params => {
+        let id: string = params['id'];
+        that.httpClient.get<Article>('http://localhost:8080/articles/' + id).subscribe(response => {
+          that.articleName = response.name;
+          that.articlePrice = response.price;
+          that.category = response.category.name;
+        })
+      );
     });
   }
 

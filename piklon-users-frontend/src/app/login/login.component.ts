@@ -18,8 +18,6 @@ export class LoginComponent implements OnInit {
   //this.testRequest()
   var username = ((document.getElementById("usernameInput") as HTMLInputElement).value);
   var password = ((document.getElementById("passwordInput") as HTMLInputElement).value);
-  console.log(username)
-  console.log(password)
 
     this.httpClient.post('http://localhost:8082/users/login',
   {
@@ -28,27 +26,23 @@ export class LoginComponent implements OnInit {
   })
   .subscribe(
     (data:any) => {
-      var response = data["token"]
-    
+      var response = data["token"];
+      localStorage.setItem('token', response);
+
       if (response == "null") {
-        alert("Neuspjesna prijava!")
+        alert("Could not sign in");
       }
       else if (response == "Username not found") {
-        alert("Username not found")
+        alert("Username not found");
       }
       else {
         //alert("Uspjesna prijava!")
-        this.router.navigateByUrl('/pocetna')
+        this.router.navigateByUrl('/pocetna');
       }
-      console.log(data)
     }
-  )
+  );
   }
 
-  getUsers() {
-  alert(this.httpClient.get('http://localhost:8082/users/all'))
-  }
-  
 
 
 
