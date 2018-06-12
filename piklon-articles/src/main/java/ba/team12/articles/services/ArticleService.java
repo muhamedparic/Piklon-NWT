@@ -58,6 +58,10 @@ public class ArticleService {
         return articleRepository.findByUserId(id);
     }
 
+    public  void saveArticle(Article article){
+        articleRepository.save(article);
+    }
+
     public  void deleteByID(Long l) {
         articleRepository.deleteById(l);
     }

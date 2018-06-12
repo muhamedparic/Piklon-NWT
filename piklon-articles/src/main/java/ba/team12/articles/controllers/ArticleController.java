@@ -1,7 +1,11 @@
 package ba.team12.articles.controllers;
 
 import ba.team12.articles.models.Article;
+import ba.team12.articles.models.Location;
+import ba.team12.articles.models.Pomocniartikl;
 import ba.team12.articles.models.TokenDecrypter;
+import ba.team12.articles.repositories.CategoryRepository;
+import ba.team12.articles.repositories.LocationRepository;
 import ba.team12.articles.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +20,12 @@ public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
+
+
+    @Autowired
+    private LocationRepository locationRepository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @GetMapping("/articles/{id}")
     public ResponseEntity findById(@PathVariable(name = "id") Long id) {
@@ -76,6 +86,25 @@ public class ArticleController {
        List<Long>list=new ArrayList<Long>();
        for(int k=0;k<i;k++)list.add(articleList.get(k).getId());
        return list;
+    }
+
+    @PostMapping("/articles/create")
+    public void addarticles(@RequestBody Pomocniartikl pomocniartikl) {
+
+        try {
+
+
+            Article article = new Article();
+            article.setName(pomocniartikl.getName());
+            article.setCondition(pomocniartikl.getCondition());
+            article.setPrice(pomocniartikl.getPrice());
+            article.setLocation(locationRepository.findByName(pomocniartikl.getLocation()).get(0));
+            article.setCategory(categoryRepository.findByNameStartsWith(pomocniartikl.getCategory()).get(0));
+            articleService.saveArticle(article);
+        }
+        catch (Exception ex){}
+
+
     }
 
 

@@ -12,4 +12,6 @@ public interface LocationRepository extends PagingAndSortingRepository<Location,
     List<Location> findByName(String name);
     List<Location> findAllByOrderByName();
     List<Location> findByNameStartsWith(String name);
+
+
 }
