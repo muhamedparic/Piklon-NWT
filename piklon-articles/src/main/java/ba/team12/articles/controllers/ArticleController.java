@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -66,6 +67,18 @@ public class ArticleController {
          }
       return ResponseEntity.badRequest().body(HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping("/articlesbyuserid/{id}")
+    public List<Long> findByUserId(@PathVariable(name = "id") Long id) {
+       List<Article>articleList=articleService.findByUserid(id);
+       int i=articleList.size();
+       if(articleList.size()>6)i=6;
+       List<Long>list=new ArrayList<Long>();
+       for(int k=0;k<i;k++)list.add(articleList.get(k).getId());
+       return list;
+    }
+
+
 
 
 }

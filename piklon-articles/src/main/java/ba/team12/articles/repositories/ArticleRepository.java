@@ -14,5 +14,6 @@ public interface ArticleRepository extends PagingAndSortingRepository<Article, L
     List<Article> findByCategory(Category category);
     List<Article> findByNameContaining(String name);
     List<Article> findByCategoryAndLocation(Category category, Location location);
+    List<Article>findByUserId(Long id);
 
 }

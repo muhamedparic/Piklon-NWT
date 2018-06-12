@@ -54,6 +54,10 @@ public class ArticleService {
             return null;
     }
 
+    public List<Article>findByUserid(Long id){
+        return articleRepository.findByUserId(id);
+    }
+
     public  void deleteByID(Long l) {
         articleRepository.deleteById(l);
     }
