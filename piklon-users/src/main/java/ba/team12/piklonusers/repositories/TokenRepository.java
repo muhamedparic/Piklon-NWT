@@ -7,5 +7,6 @@ public interface TokenRepository extends PagingAndSortingRepository<Token, Long>
 
     //Token findByUser_id(Long userID);
     Token findByUserId(Long id);
+    Token findByUserToken(String token);
 
 }

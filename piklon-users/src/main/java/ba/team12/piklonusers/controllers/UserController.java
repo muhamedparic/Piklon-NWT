@@ -58,13 +58,16 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteNote(@RequestHeader Token  tokenadminov,@PathVariable(value = "id") Long id) throws ChangeSetPersister.NotFoundException {
+    public String deleteNote(@RequestHeader("token") String token,@PathVariable(value = "id") Long id) throws ChangeSetPersister.NotFoundException {
         User user = userRepository.findById(id).orElseThrow(() -> new FileSystemNotFoundException("User not found"));
-       if(tokenadminov.getUser_token().contains("admin")) {
-           Token tokenuserov = tokenRepository.findByUserId(id);
-           userRepository.delete(user);
-           tokenRepository.delete(tokenuserov);
-           return "User is deleted";
+       Token tokenadminov=tokenRepository.findByUserToken(token);
+       if(token!=null) {
+           if ((tokenadminov.getUser_token().contains("admin")) && (checkAuthorization(tokenadminov))) {
+               Token tokenuserov = tokenRepository.findByUserId(id);
+               userRepository.delete(user);
+               tokenRepository.delete(tokenuserov);
+               return "User is deleted";
+           }
        }
        return "failed";
     }
