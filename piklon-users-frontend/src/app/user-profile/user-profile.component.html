@@ -2,7 +2,12 @@
 <!--<h1>{{username}}<h1>
 <h2>{{name}} {{lastName}}</h2>
 <h2>{{email}}</h2>-->
-<div class="container">
+
+<div>
+  <app-navbar></app-navbar>
+</div>
+
+<div class="container" style="position: absolute; margin-top: 50px;">
   <div class="row">
     <div class="col-lg-3">
           <!-- Search Widget -->
@@ -50,23 +55,8 @@
     <!-- /.col-lg-3 -->
     <div class="col-lg-9">
           <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-              <app-article-preview></app-article-preview>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-              <app-article-preview></app-article-preview>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-              <app-article-preview></app-article-preview>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-              <app-article-preview></app-article-preview>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-              <app-article-preview></app-article-preview>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-              <app-article-preview></app-article-preview>
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let id of articleIds">
+              <app-article-preview [articleId]=id></app-article-preview>
             </div>
           </div>
           <!-- /.row -->

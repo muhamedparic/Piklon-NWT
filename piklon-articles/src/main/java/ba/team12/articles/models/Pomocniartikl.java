@@ -8,6 +8,8 @@ public class Pomocniartikl {
     int price;
     Condition condition;
     String category;
+    Long userId;
+
     public Pomocniartikl() {
     }
 
@@ -51,13 +53,20 @@ public class Pomocniartikl {
         this.category = category;
     }
 
+    public Long getUserId() {
+        return this.userId;
+    }
 
+    public void setUserId(Long id) {
+        this.userId = id;
+    }
 
-    public Pomocniartikl(String name, String location, int price, Condition condition, String category) {
+    public Pomocniartikl(String name, String location, int price, Condition condition, String category, Long userId) {
         this.name = name;
         this.location = location;
         this.price = price;
         this.condition = condition;
         this.category = category;
+        this.userId = userId;
     }
 }

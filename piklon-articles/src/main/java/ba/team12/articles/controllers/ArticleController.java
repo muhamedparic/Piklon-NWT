@@ -100,6 +100,7 @@ public class ArticleController {
             article.setPrice(pomocniartikl.getPrice());
             article.setLocation(locationRepository.findByName(pomocniartikl.getLocation()).get(0));
             article.setCategory(categoryRepository.findByNameStartsWith(pomocniartikl.getCategory()).get(0));
+            article.setUserId(pomocniartikl.getUserId());
             articleService.saveArticle(article);
         }
         catch (Exception ex){}

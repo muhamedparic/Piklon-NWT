@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     (data:any) => {
       var response = data["token"];
       localStorage.setItem('token', response);
+      localStorage.setItem('username', username);
 
       if (response == "null") {
         alert("Could not sign in");
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
       }
       else {
         //alert("Uspjesna prijava!")
-        this.router.navigateByUrl('/pocetna');
+        this.router.navigateByUrl('/profile');
       }
     }
   );
@@ -64,6 +65,8 @@ export class LoginComponent implements OnInit {
 }*/
 
   ngOnInit() {
+    if (localStorage.getItem('token') !== null)
+      this.router.navigateByUrl('/profile');
   }
 
 }

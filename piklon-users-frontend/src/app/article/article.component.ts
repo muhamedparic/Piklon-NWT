@@ -13,6 +13,7 @@ import { Article } from './article.model';
 export class ArticleComponent implements OnInit {
   articleName: string = "";
   articlePrice: number = -1;
+  articleCondition: string = "";
   sellerId: string = "";
   category: string = "";
 
@@ -25,10 +26,11 @@ export class ArticleComponent implements OnInit {
         that.httpClient.get<Article>('http://localhost:8080/articles/' + id).subscribe(response => {
           that.articleName = response.name;
           that.articlePrice = response.price;
+          that.articleCondition = response.condition;
           that.category = response.category.name;
         })
-      );
-    });
+      });
+    );
   }
 
 }

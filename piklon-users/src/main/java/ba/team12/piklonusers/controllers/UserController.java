@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.nio.file.FileSystemNotFoundException;
 import java.security.SecureRandom;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/users")
@@ -52,6 +55,13 @@ public class UserController {
         else return "{\"status\": \"" + "Invalid username" + "\"}";
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping(value="/getIdByUsername")
+    public Long getIdByUsername(@RequestParam String username) {
+        return userRepository.findByUsername(username).getId();
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/get/{id}")
     public User getUser(@PathVariable(name = "id") Long id) throws ChangeSetPersister.NotFoundException{
         return userRepository.findById(id).orElseThrow(() -> new FileSystemNotFoundException("User not found"));

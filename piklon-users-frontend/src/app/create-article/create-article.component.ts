@@ -15,13 +15,19 @@ class Category {
 export class CreateArticleComponent implements OnInit {
 
   public categories: string[] = [];
+  userId: number;
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.httpClient.get<Category[]>('http://localhost:8080/categories/all').subscribe(response => {
-      console.log(response);
       response.forEach(category => this.categories.push(category.name));
+    });
+
+    let that: any = this;
+
+    this.httpClient.get<number>('http://localhost:8082/users/getIdByUsername?username=' + localStorage.getItem('username')).subscribe(response => {
+      that.userId = response;
     });
   }
 
@@ -36,10 +42,11 @@ export class CreateArticleComponent implements OnInit {
                                                                    location: location,
                                                                    price: price,
                                                                    condition: condition,
-                                                                   category: category},
+                                                                   category: category,
+                                                                   userId: this.userId},
                                                                   {observe: 'response'})
     .subscribe(response => {
-      if (response.status)
+      if (response.status === 200)
         alert('Article successfully added!');
       else
         alert('Couldn\'t add article');
