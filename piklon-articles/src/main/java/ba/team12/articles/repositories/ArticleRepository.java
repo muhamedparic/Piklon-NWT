@@ -17,5 +17,4 @@ public interface ArticleRepository extends PagingAndSortingRepository<Article, L
     List<Article>findByUserId(Long id);
 
 
-
 }
